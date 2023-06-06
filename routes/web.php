@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +14,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// All Listings
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
-        'listings' => [
-            [
-                'id' => 1,
-                'title' => 'Listing One',
-                'description' => 'lorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolore'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Listing Two',
-                'description' => ' orem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolorelorem psum dolore'
-            ]
-        ]
-
+        'listings' => Listing::all()
     ]);
+});
+
+// Single Listing
+Route::get('/listing/{id}', function ($id) {
+    return view('listing', ['listing' => Listing::find($id)]);
 });
