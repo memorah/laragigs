@@ -18,8 +18,8 @@ use App\Models\Listing;
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
-// Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
-
 // Show Create Form
 Route::get('/listings/create', [ListingController::class, 'create']);
+
+// Single Listing --always at bottom--
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
