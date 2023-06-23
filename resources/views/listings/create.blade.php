@@ -9,7 +9,8 @@ class="p-10 max-w-lg mx-auto mt-24"
     <p class="mb-4">Post a gig to find a developer</p>
 </header>
 
-<form action="">
+<form method="POST" action="/listings">
+    @csrf
     <div class="mb-6">
         <label
             for="company"
@@ -21,6 +22,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="company"
         />
+        @error('company')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -33,6 +37,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             name="title"
             placeholder="Example: Senior Laravel Developer"
         />
+        @error('title')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -47,6 +54,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             name="location"
             placeholder="Example: Remote, Boston MA, etc"
         />
+        @error('location')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -58,6 +68,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
         />
+        @error('email')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -72,6 +85,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="website"
         />
+        @error('website')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -84,6 +100,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             name="tags"
             placeholder="Example: Laravel, Backend, Postgres, etc"
         />
+        @error('tags')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -95,6 +114,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="logo"
         />
+        @error('logo')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -110,6 +132,9 @@ class="p-10 max-w-lg mx-auto mt-24"
             rows="10"
             placeholder="Include tasks, requirements, salary, etc"
         ></textarea>
+        @error('description')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
