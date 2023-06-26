@@ -9,7 +9,7 @@ class="p-10 max-w-lg mx-auto mt-24"
     <p class="mb-4">Post a gig to find a developer</p>
 </header>
 
-<form method="POST" action="/listings">
+<form method="POST" action="/listings" enctype="multipart/form-data">
     @csrf
     <div class="mb-6">
         <label
@@ -138,7 +138,7 @@ class="p-10 max-w-lg mx-auto mt-24"
             rows="10"
             placeholder="Include tasks, requirements, salary, etc"
            
-        >{{old('description')}}
+        > 
     </textarea>
         @error('description')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
