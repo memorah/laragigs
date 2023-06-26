@@ -56,12 +56,12 @@ class ListingController extends Controller
     }
 
     //Update Listing Data
-    public function stupdateore(Request $request, Listing $listing)
+    public function update(Request $request, Listing $listing)
     {
         $formFields = $request->validate(
             [
                 'title' => 'required',
-                'company' => ['required',],
+                'company' => 'required',
                 'location' => 'required',
                 'website' => 'required',
                 'email' => ['required', 'email'],
@@ -75,6 +75,6 @@ class ListingController extends Controller
 
         $listing->update($formFields);
 
-        return back()->with('message', 'Listing created successfully!');
+        return back()->with('message', 'Listing updated successfully!');
     }
 }
